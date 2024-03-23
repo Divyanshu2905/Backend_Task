@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//Defining SUb Schemas
 const TokenSchema = new mongoose.Schema({
   address: {type:String, required:true},
   name: {type:String, required:true},
@@ -12,6 +13,7 @@ const PriceChangeSchema = new mongoose.Schema({
   h24: {type:Number,required:true}
 });
 
+//Main Price Schema
 const PriceSchema = new mongoose.Schema({
   chainId: {type:String,required:true},
   dexId: {type:String,required:true},
@@ -26,4 +28,5 @@ const PriceSchema = new mongoose.Schema({
 }
 );
 
+//Exporting Schemas
 module.exports = mongoose.model('Price', PriceSchema);
