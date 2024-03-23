@@ -1,5 +1,7 @@
 const router=require("express").Router();
 const Pair=require("./VolumeSchema");
+
+//Get Request Parameterised
 router.get("/:id",async(req,res)=>{
     try{
         const data=await Pair.findOne({pairAddress:req.params.id});
@@ -12,6 +14,7 @@ router.get("/:id",async(req,res)=>{
     }
 })
 
+//Get Request Un-Parameterised
 router.get("/",async(req,res)=>{
     try{
         const data=await Pair.find();
@@ -21,6 +24,7 @@ router.get("/",async(req,res)=>{
     }
 })
 
+//Post Request
 router.post("/",async(req,res) => {
     const newData=new Pair(req.body);
     try{
@@ -31,6 +35,7 @@ router.post("/",async(req,res) => {
     }
 })
 
+//Delete Request
 router.delete("/:id", async(req,res) => {
     try{
         const data=await Pair.findOne({pairAddress:req.params.id});
@@ -48,6 +53,7 @@ router.delete("/:id", async(req,res) => {
     }
 })
 
+//Update Request
 router.put("/:id", async(req,res) => {
     try{
         const data=await Pair.findOne({pairAddress:req.params.id});

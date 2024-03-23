@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
+//Defining SubSchemas
 const TokenSchema = new mongoose.Schema({
     address: {type:String, required:true},
     name: {type:String, required:true},
     symbol: {type:String, required:true}
 });
-
 const Volume = new mongoose.Schema({
     h24: {type:Number,required:true},
     h6: {type:Number,required:true},
@@ -13,7 +13,7 @@ const Volume = new mongoose.Schema({
     m5: {type:Number,required:true}
   });
 
-  
+//Main Volume Schema  
 const VolumeSchema = new mongoose.Schema({
     chainId: {type:String,required:true},
     dexId: {type:String,required:true},
@@ -25,5 +25,6 @@ const VolumeSchema = new mongoose.Schema({
     pairCreatedAt:{type: Date,default: Date.now},
   }
   );
-
+  
+  //Exporting Schema
   module.exports = mongoose.model('Volume', VolumeSchema);
